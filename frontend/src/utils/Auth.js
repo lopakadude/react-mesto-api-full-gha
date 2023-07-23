@@ -1,4 +1,4 @@
-const BASE_URL = "http://api.express.lopakadude.nomoredomains.xyz";
+const BASE_URL = "https://api.express.lopakadude.nomoredomains.xyz";
 
 function checkResponse(res) {
 	if (res.ok) {

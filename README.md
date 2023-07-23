@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.115.168
+IP 158.160.115.168
 
 Frontend https://express.lopakadude.nomoredomains.xyz
 
