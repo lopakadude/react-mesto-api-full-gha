@@ -16,5 +16,5 @@ module.exports = (req, res, next) => {
     throw new AuthorizationError('Авторизация не пройдена. Неверный почта или пароль');
   }
   req.user = payload;
-  next();
+  return next();
 };
