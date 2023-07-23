@@ -12,6 +12,7 @@ module.exports = (req, res, next) => {
 
   try {
     payload = jwt.verify(token, process.env.NODE_ENV !== 'production' ? 'super-strong-secret' : process.env.JWT_SECRET);
+    console.log(payload);
   } catch (err) {
     throw new AuthorizationError('Авторизация не пройдена. Неверный почта или пароль');
   }
