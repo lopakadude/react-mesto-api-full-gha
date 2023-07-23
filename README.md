@@ -5,12 +5,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/lopakadude/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 158.160.115.168
 
-Frontend https://...
+Frontend https://express.lopakadude.nomoredomains.xyz
 
-Backend https://...
+Backend https://api.express.lopakadude.nomoredomains.xyz
