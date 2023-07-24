@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const ConflictError = require('../errors/ConflictError');
@@ -34,7 +35,7 @@ module.exports.createUser = (req, res, next) => {
         next(new ConflictError(
           `Пользователь с email '${email}' уже существует.`,
         ));
-      } else if (err.name === 'ValidationError') {
+      } else if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequest('Переданы некорректные данные при создании пользователя.'));
       } else {
         next(err);
@@ -64,7 +65,7 @@ module.exports.getUser = (req, res, next) => {
       res.send({ data: user });
     })
     .catch((err) => {
-      if (err.name === 'CastError') {
+      if (err instanceof mongoose.Error.CastError) {
         next(new BadRequest('Некорректный формат id.'));
       } else {
         next(err);
@@ -95,7 +96,7 @@ module.exports.updateUserInfo = (req, res, next) => {
       res.send({ data: user });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
+      if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequest('Переданы некорректные данные при обновлении профиля.'));
       } else {
         next(err);
@@ -113,7 +114,7 @@ module.exports.updateUserAvatar = (req, res, next) => {
       res.send({ data: user });
     })
     .catch((err) => {
-      if (err.name === 'ValidationError') {
+      if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequest('Переданы некорректные данные при обновлении профиля.'));
       } else {
         next(err);
