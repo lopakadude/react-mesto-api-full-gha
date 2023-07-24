@@ -11,6 +11,6 @@
 
 IP 158.160.107.198
 
-Frontend https://express.lopakadude.nomoredomains.xyz
+Frontend https://express.lopakadude.nomoredomains.xyz/
 
-Backend https://api.express.lopakadude.nomoredomains.xyz
+Backend https://api.express.lopakadude.nomoredomains.xyz/
