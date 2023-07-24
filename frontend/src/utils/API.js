@@ -18,6 +18,7 @@ class Api {
 	};
 
 	getUserInfo() {
+		this.headers.authorization = `Bearer ${localStorage.getItem('jwt')}`;
 		return this._request(`users/me`, {
 			method: 'GET',
 			headers: this.headers,
@@ -97,7 +98,7 @@ class Api {
 export const api = new Api({
 	baseUrl: 'https://api.express.lopakadude.nomoredomains.xyz',
 	headers: {
-		Authorization:`Bearer ${localStorage.getItem('jwt')}`,
+		authorization:`Bearer ${localStorage.getItem('jwt')}`,
 		'Content-Type': 'application/json'
 	}
 });

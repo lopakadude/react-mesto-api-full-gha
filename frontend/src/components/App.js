@@ -34,22 +34,26 @@ function App() {
 	const [email, setEmail] = useState('');
 
 	useEffect(() => { 
+		if (isLoggedIn)  {
 		api 
 			.getUserInfo() 
 			.then((res) => { 
 				setCurrentUser(res.data);
 			}) 
 			.catch(console.error) 
-	}, []); 
+		}
+	}, [isLoggedIn]); 
 
 	useEffect(() => { 
+		if (isLoggedIn)  {
 		api 
 			.getInitialCards() 
 			.then((res) => { 
 				setCards(res.data.reverse()); 
 			}) 
 			.catch(console.error) 
-	}, []) 
+		}
+	}, [isLoggedIn]) 
 
 	function handleEditAvatarClick() {
 		setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
