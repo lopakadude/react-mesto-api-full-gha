@@ -7,11 +7,11 @@ module.exports = (req, res, next) => {
   if (!authorization || !authorization.startsWith('Bearer ')) {
     next(new AuthorizationError('Авторизация не пройдена. Неверные почта или пароль'));
   }
-  const token = authorization.replace('Bearer ', '');
+  const token = authorization;
   let payload;
 
   try {
-    payload = jwt.verify(token, 'super-strong-secret');
+    payload = jwt.verify(token, process.env.NODE_ENV !== 'production' ? 'super-strong-secret' : process.env.JWT_SECRET);
   } catch (err) {
     next(new AuthorizationError(token));
   }
