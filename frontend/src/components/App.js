@@ -33,27 +33,27 @@ function App() {
 	const [isInfoToolTipPopupOpen, setInfoToolTipPopupOpen] = useState(false);
 	const [email, setEmail] = useState('');
 
-	useEffect(() => { 
-		if (isLoggedIn)  {
-		api 
-			.getUserInfo() 
-			.then((res) => { 
-				setCurrentUser(res.data);
-			}) 
-			.catch(console.error) 
+	useEffect(() => {
+		if (isLoggedIn) {
+			api
+				.getUserInfo()
+				.then((res) => {
+					setCurrentUser(res.data);
+				})
+				.catch(console.error)
 		}
-	}, [isLoggedIn]); 
+	}, [isLoggedIn]);
 
-	useEffect(() => { 
-		if (isLoggedIn)  {
-		api 
-			.getInitialCards() 
-			.then((res) => { 
-				setCards(res.data.reverse()); 
-			}) 
-			.catch(console.error) 
+	useEffect(() => {
+		if (isLoggedIn) {
+			api
+				.getInitialCards()
+				.then((res) => {
+					setCards(res.data.reverse());
+				})
+				.catch(console.error)
 		}
-	}, [isLoggedIn]) 
+	}, [isLoggedIn])
 
 	function handleEditAvatarClick() {
 		setIsEditAvatarPopupOpen(!isEditAvatarPopupOpen);
@@ -98,7 +98,7 @@ function App() {
 	function handleUpdateUser({ name, about }) {
 		function makeRequest() {
 			return api.setUserInfo({ name: name, about: about })
-			.then((res) => {setCurrentUser(res.data)});
+				.then((res) => { setCurrentUser(res.data) });
 		}
 		handleSubmit(makeRequest);
 	}
@@ -106,7 +106,7 @@ function App() {
 	function handleUpdateAvatar(info) {
 		function makeRequest() {
 			return api.setChangeAvatar(info)
-			.then((res) => {setCurrentUser(res.data)});
+				.then((res) => { setCurrentUser(res.data) });
 		}
 		handleSubmit(makeRequest);
 	}
@@ -114,7 +114,7 @@ function App() {
 	function handleAddPlaceSubmit({ name, link }) {
 		function makeRequest() {
 			return api.postNewCard({ name, link })
-			.then((res) => {setCards([res.data, ...cards])})
+				.then((res) => { setCards([res.data, ...cards]) })
 		}
 		handleSubmit(makeRequest);
 	}
@@ -128,9 +128,8 @@ function App() {
 	}
 
 	useEffect(() => {
-		const jwt = localStorage.getItem('jwt');
-
-		if (jwt) {
+		if (localStorage.getItem('jwt')) {
+			const jwt = localStorage.getItem('jwt');
 			auth
 				.checkToken(jwt)
 				.then((res) => {
@@ -140,7 +139,7 @@ function App() {
 				})
 				.catch(console.error)
 		}
-	}, [navigate]);
+	});
 
 	function handleRegistrationSubmit({ email, password }) {
 		auth
