@@ -98,7 +98,7 @@ class Api {
 export const api = new Api({
 	baseUrl: 'https://api.express.lopakadude.nomoredomains.xyz',
 	headers: {
-		authorization:'Bearer ' + localStorage.getItem('jwt'),
+		authorization: `Bearer ${localStorage.getItem('jwt')}`,
 		'Content-Type': 'application/json'
 	}
 });
