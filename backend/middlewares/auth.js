@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
   try {
     payload = jwt.verify(token, process.env.NODE_ENV !== 'production' ? 'super-strong-secret' : process.env.JWT_SECRET);
   } catch (err) {
-    next(new AuthorizationError({token}));
+    next(new AuthorizationError(payload));
   }
   req.user = payload;
   return next();
