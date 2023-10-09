@@ -4,5 +4,5 @@
 
 ## Ссылки на проект
 
-[Frontend](https://github.com/lopakadude/react-mesto-auth).
-[Backend](https://github.com/lopakadude/express-mesto-gha).
+1. [Frontend](https://github.com/lopakadude/react-mesto-auth).
+2. [Backend](https://github.com/lopakadude/express-mesto-gha).
